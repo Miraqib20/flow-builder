@@ -1,73 +1,148 @@
-# React + TypeScript + Vite
+# 🚀 Visual Flow Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **Visual Flow Builder** built using **React + TypeScript**, allowing users to visually create workflows by connecting nodes with conditional transitions.
 
-Currently, two official plugins are available:
+This project mimics lightweight workflow automation tools such as **Zapier**, **n8n**, and chatbot flow builders.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🌐 Live Demo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📖 Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The application provides an interactive canvas where users can design flows visually and export them as structured JSON.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Users can:
+  Create_workflow_nodes
+  Connect nodes using conditional edges
+  Define transitions between steps
+  Mark a start node
+  Edit node properties
+  View live JSON output
+  Validate workflows in real-time
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+The goal was to build an intuitive flow editor with clean architecture and strong validation logic.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠 Tech Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **React**
+- **TypeScript**
+- **React Flow** — visual graph editor
+- **Zustand** — state management
+- **Vite** — development & build tool
+- **CSS** — custom styling
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## ✨ Features
+
+🧩 Canvas Editor
+  Add new nodes dynamically
+  Drag and reposition nodes
+  Connect nodes visually
+  Edge labels display transition conditions
+  Highlighted **Start Node**
+  Delete key removes selected node
+
+---
+
+⚙️ Node Sidebar
+When a node is selected:
+
+- Edit node description
+- Edit prompt text
+- Set start node
+- Add outgoing edges
+- Select target node
+- Modify edge condition
+- Remove edges anytime
+
+---
+
+📄Live_JSON_Preview
+  Real-timeJSON generation
+  Automatic updates during editing
+  Inline validation messages
+  Export-ready schema output
+
+---
+
+## ✅ Validations Implemented
+
+- ✔ Starting node must exist
+- ✔ Only one start node allowed
+- ✔ Node description required
+- ✔ Disconnected node detection
+- ✔ Live validation feedback
+
+Graph traversal (DFS) is used to ensure workflow correctness.
+
+---
+
+## 📦 JSON Schema
+
+```ts
+interface Edge {
+  to_node_id: string;
+  condition: string;
+}
+
+interface Node {
+  id: string;
+  description?: string;
+  prompt: string;
+  edges: Edge[];
+}
+📂 Project Structure
+src/
+│
+├── components/
+│   ├── FlowCanvas.tsx
+│   ├── NodeSidebar.tsx
+│   └── JSONPreview.tsx
+│
+├── store/
+│   └── flowStore.ts
+│
+├── utils/
+│   └── validation.ts
+│
+├── types/
+│   └── flow.ts
+│
+├── App.tsx
+└── main.tsx
+⚙️ Getting Started
+1️⃣ Clone Repository
+git clone <your-repository-link>
+cd flow-builder
+2️⃣ Install Dependencies
+npm install
+3️⃣ Run Development Server
+npm run dev
+
+Open:
+
+http://localhost:5173
+🧠 Design Decisions
+
+React Flow used for efficient node-edge visualization.
+
+Zustand chosen for lightweight global state handling.
+
+Unique node IDs generated using UUID.
+
+Validation logic centralized for maintainability.
+
+Graph traversal algorithm ensures flow connectivity.
+
+
+👨‍💻 Author
+
+Mir Aqib Mushtaq
+FullStacl Developer
+
