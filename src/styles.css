@@ -1,0 +1,211 @@
+/* ==============================
+   GLOBAL
+============================== */
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: #f5f6f8;
+  color: #111;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ==============================
+   APP LAYOUT
+============================== */
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==============================
+   HEADER
+============================== */
+
+header {
+  background: #111;
+  color: white;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header button {
+  background: #4f46e5;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+header button:hover {
+  background: #4338ca;
+}
+
+/* ==============================
+   MAIN GRID
+============================== */
+
+.layout {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  overflow: hidden;
+}
+
+/* ==============================
+   FLOW CANVAS
+============================== */
+
+.flow-canvas {
+  height: 100%;
+  width: 100%;
+  background: #fafafa;
+}
+
+/* ==============================
+   SIDEBAR + JSON PANEL
+============================== */
+
+.sidebar,
+.json {
+  background: white;
+  padding: 14px;
+  border-left: 1px solid #e5e7eb;
+  overflow-y: auto;
+}
+
+.sidebar h3,
+.json h3 {
+  margin-top: 0;
+}
+
+/* ==============================
+   FORM ELEMENTS
+============================== */
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+textarea,
+input,
+select {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #4f46e5;
+}
+
+/* ==============================
+   BUTTONS
+============================== */
+
+button {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  background: #4f46e5;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #4338ca;
+}
+
+button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* ==============================
+   EDGE EDITOR
+============================== */
+
+.edge-editor {
+  border: 1px solid #e5e7eb;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: #fafafa;
+}
+
+/* ==============================
+   JSON PREVIEW
+============================== */
+
+.json pre {
+  background: #111;
+  color: #22c55e;
+  padding: 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 13px;
+}
+
+/* ==============================
+   VALIDATION ERRORS
+============================== */
+
+.errors {
+  color: #dc2626;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+/* ==============================
+   EMPTY STATE
+============================== */
+
+.empty-state {
+  position: absolute;
+  top: 80px;
+  left: 35%;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+/* ==============================
+   SCROLLBAR (Nice Touch)
+============================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}

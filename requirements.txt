@@ -1,0 +1,18 @@
+# Frontend Dependencies (React + TypeScript Flow Builder)
+
+react
+react-dom
+reactflow
+zustand
+uuid
+
+# Development Dependencies
+typescript
+vite
+@vitejs/plugin-react
+eslint
+eslint-plugin-react-hooks
+eslint-plugin-react-refresh
+@types/react
+@types/react-dom
+@types/uuid
